@@ -45,7 +45,7 @@ Every fluent API can easily be discovered with popular IDEs using code completio
 ![CLI Tools](~/images/cli-tools.gif)
 
 > [!Note]
-> Occasionally, it may happen that an argument is not available from the fluent API. In this case, the `SetArgumentConfigurator` method can be used to add them manually. However, an [issue](https://github.com/nuke-build/nuke/issues/new) should be created to address missing arguments in future releases.
+> Occasionally, it may happen that an argument is not available from the fluent API. In this case, the `SetArgumentConfigurator` method can be used to add them manually.
 
 <!--
     SetToolPath

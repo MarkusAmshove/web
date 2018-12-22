@@ -112,13 +112,14 @@ title: Home
 </svg>
 -->
         <ol class="definition">
-          <li>A cross-platform <a href="https://martinfowler.com/articles/continuousIntegration.html#AutomateTheBuild">build automation</a> system with C# DSL.</li>
+          <li>A cross-platform <a href="https://martinfowler.com/articles/continuousIntegration.html#AutomateTheBuild">build automation</a> system with C# <a href="https://martinfowler.com/bliki/DomainSpecificLanguage.html">DSL</a>.</li>
           <li>An approach to embrace existing IDE tooling.</li>
           <li>A state where everyone in a team is able to manage and change the build.</li>
         </ol>
         <p>
-        <a class="btn btn-default btn-md" href="/getting-started.html" role="button">Read more</a>
-        <a class="btn btn-default btn-md" href="https://www.youtube.com/watch?v=7gEqxzD6hbs" role="button">Watch more</a>
+        <a class="btn btn-default btn-md" href="/docs/getting-started/philosophy.html" role="button">Read documentation</a>
+        <a class="btn btn-default btn-md" href="https://dotnetrocks.com/?show=1598" role="button">Listen to podcast</a>
+        <a class="btn btn-default btn-md" href="https://www.youtube.com/watch?v=7gEqxzD6hbs" role="button">Watch presentation</a>
       </div>
   </div>
 </div>

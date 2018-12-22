@@ -14,7 +14,7 @@ Depending on the operating system, one of the two bootstrapping scripts for Powe
 
 ```powershell
 $ ./build.sh [targets] [arguments]
-$ ./build.ps1 [targets] [arguments]
+$ .\build.ps1 [targets] [arguments]
 ```
 
 > [!Note]
@@ -22,7 +22,7 @@ $ ./build.ps1 [targets] [arguments]
 
 ### Arguments
 
-Arguments can be passed either in **lisp-case or camel-case** style with either **single or double dash** as prefix. The preferred variant is lisp-case with two dashes, which is also used for the [global tool shell completion]():
+Arguments can be passed either in **lisp-case or camel-case** style with either **single or double dash** as prefix. The preferred variant is lisp-case with two dashes, which is also used for the [global tool shell completion](../running-builds/global-tool.md):
 
 ```powershell
 $ build --target pack --configuration release --api-key 12345
@@ -36,12 +36,6 @@ $ build --target test pack --skip clean+restore
 
 > [!Note]
 > The `--skip` parameter can also be passed as a pure switch, i.e. without any targets as arguments. In this case, only the invoked targets will be executed, which greatly enhances troubleshooting.
-
-### Help
-
-A list of available targets, [predefined parameters](authoring-builds-predefined-parameters) as well as [custom declared parameters](authoring-builds-parameter-declaration) can always be shown by passing the `--help` switch:
-
-![Help](~/images/help.png)
 
 ### Summary
 
@@ -62,3 +56,15 @@ Total                               0:32
 
 Build succeeded on 01/01/2018 14:00:00.
 ```
+
+### Help
+
+A list of available targets, [predefined parameters](../authoring-builds/predefined-parameters.md) as well as [custom declared parameters](../authoring-builds/parameter-declaration.md) can always be shown by passing the `--help` switch. Targets are shown along their direct dependencies, while custom parameters are separated from predefined ones:
+
+![Help](~/images/help.png)
+
+A visual representation for all target dependencies can be shown by passing the `--plan` switch. Hovering a target reveals its individual execution plan:
+
+![Plan](~/images/plan.gif)
+
+The default target is highlighted in light-blue. Solid grey edges mark [execution dependencies](../authoring-builds/fundamentals.md#dependsondependentfor), dashed grey edges signal [ordering dependencies](../authoring-builds/fundamentals.md#beforeafter) and solid yellow lines indicate [triggers](../authoring-builds/fundamentals.md#triggerstriggeredby).

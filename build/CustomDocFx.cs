@@ -34,10 +34,10 @@ static class CustomDocFx
         var framework = GetFrameworkToAnalyze(directory);
         var name = new DirectoryInfo(directory).Name;
 
-        var rootDirectory = NukeBuild.Instance.RootDirectory;
+        var rootDirectory = NukeBuild.RootDirectory;
         var src = (UnixRelativePath) GetRelativePath(rootDirectory, directory);
         var dest = (UnixRelativePath) GetRelativePath(rootDirectory, apiDirectory / name);
-        var packages = (UnixRelativePath) GetRelativePath(rootDirectory, NukeBuild.Instance.TemporaryDirectory) / "packages";
+        var packages = (UnixRelativePath) GetRelativePath(rootDirectory, NukeBuild.TemporaryDirectory) / "packages";
 
         dynamic srcObject = new JObject();
         srcObject.src = src.ToString();

@@ -27,9 +27,9 @@ class Build : NukeBuild
 
 The `Build` class inherits from `NukeBuild` and must provide a `static int Main` method that delegates to the execution engine via `Execute<T>`, which passes the build type `Build` and the default target `Foo`. Targets are represented as **expression-bodied properties** that return a `Target` delegate. This delegate is used as a starting point for a fluent API. One of the most essential methods of this fluent API, is the `Executes` method, as it assigns a target with its actual action to be executed.
 
-### DependsOn
+### DependsOn/DependentFor
 
-Similar to other build systems, NUKE implements a **dependency-based execution model**. This is expressed with the `DependsOn` method, which accepts a `params Target[]` that allows to pass several targets as dependencies. Note, that **dependencies are solely specified at individual targets**. In the next example, the two targets `Pack` and `Test` could theoretically run in parallel when invoking the `Full` target:
+Similar to other build systems, NUKE implements a **dependency-based execution model**. This is expressed with the `DependsOn` (inverse `DependentFor`) method, which accepts a `params Target[]` that allows to pass several targets as dependencies. Note, that **dependencies are solely specified at individual targets**. In the next example, the two targets `Pack` and `Test` could theoretically run in parallel when invoking the `Full` target:
 
 ```c#
 Target Compile => _ => _
@@ -49,7 +49,7 @@ Target Full => _ => _
 
 ### Before/After
 
-Sometimes, targets are not dependent on each other, but require each other to be executed in a certain order. This can be achieved by defining **soft dependencies** with `Before` or `After`:
+Sometimes, targets are not dependent on each other, but require each other to be executed in a certain order. This can be achieved by defining **order dependencies** with `Before` or `After`:
 
 ```c#
 Target Clean => _ => _
@@ -61,6 +61,19 @@ Target Compile => _ => _
     
 Target Analyse => _ => _
     .After(Clean)
+    .Executes(() => { });
+```
+
+### Triggers/TriggeredBy
+
+Occasionally, certain targets are intended to trigger other targets as soon as they are done. NUKE allows to define such **trigger dependencies** by calling the `Triggers` (inverse `TriggeredBy`) method:
+
+```c#
+Target Publish => _ => _
+    .Triggers(Update)
+    .Executes(() => { });
+    
+Target Update => _ => _
     .Executes(() => { });
 ```
 
