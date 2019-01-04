@@ -44,15 +44,15 @@ At the end of every build execution, a summary with statuses and elapsed time pe
 ```powershell
 No errors or warnings.
 
-========================================
-Target              Status      Duration
-----------------------------------------
-Clean               Executed        0:00
-Restore             Executed        0:05
-Compile             Executed        0:26
-----------------------------------------
-Total                               0:32
-========================================
+=======================================
+Target             Status      Duration
+---------------------------------------
+Clean              Executed        0:00
+Restore            Executed        0:05
+Compile            Executed        0:26
+---------------------------------------
+Total                              0:32
+=======================================
 
 Build succeeded on 01/01/2018 14:00:00.
 ```
@@ -67,4 +67,4 @@ A visual representation for all target dependencies can be shown by passing the 
 
 ![Plan](~/images/plan.gif)
 
-The default target is highlighted in light-blue. Solid grey edges mark [execution dependencies](../authoring-builds/fundamentals.md#dependsondependentfor), dashed grey edges signal [ordering dependencies](../authoring-builds/fundamentals.md#beforeafter) and solid yellow lines indicate [triggers](../authoring-builds/fundamentals.md#triggerstriggeredby).
+The default target is highlighted in light-blue. Solid grey edges mark [execution dependencies](../authoring-builds/fundamentals.md#execution-dependencies), dashed grey edges signal [ordering dependencies](../authoring-builds/fundamentals.md#ordering-dependencies) and solid yellow lines indicate [triggers](../authoring-builds/fundamentals.md#trigger-dependencies).
