@@ -58,3 +58,8 @@ _nuke_bash_complete()
 }
 complete -f -F _nuke_bash_complete nuke
 ```
+
+For **fish**, add the following to `config.fish`:
+```bash
+complete -fc nuke --arguments '(nuke :complete (commandline -cp))'
+```
